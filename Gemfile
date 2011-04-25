@@ -7,6 +7,9 @@ gem 'rails', '3.0.7'
 
 gem 'sqlite3'
 
+gem "devise"
+gem "devise_ldap_authenticatable"
+
 group :test do
   gem 'cucumber-rails'
   gem 'capybara'

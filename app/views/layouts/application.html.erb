@@ -7,6 +7,28 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
+       <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+
+<div>
+  <% if current_user %>
+    Welcome, <%= current_user.username %>
+  <% else %>
+    You are not logged in
+    <p><%= link_to 'sign in', new_user_session_path %>
+  <% end %>
+</div> 
+
+
+<%= form_for("user", :url => user_session_path) do |f| %>
+username
+  <%= f.text_field :username %>
+password
+  <%= f.password_field :password %>
+  <%= f.check_box :remember_me %>
+  <%= f.label :remember_me %>
+  <%= f.submit 'Sign in' %>
+<% end %>
 
 <%= yield %>
 
