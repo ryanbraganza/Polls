@@ -1,0 +1,18 @@
+In rough order of priority
+
+logout
+
+Polls - name, description, (creator)
+Questions - name, options, (poll)
+Responses - voter, option, (question)
+
+Comments - author, text
+who's online now?
+
+"social"
+
+poll expiry date
+threaded comments
+poll voting
+comment voting
+
