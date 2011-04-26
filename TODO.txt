@@ -4,7 +4,6 @@ Questions - name, options, (poll)
 Responses - voter, option, (question)
 
 Comments - author, text
-who's online now?
 
 "social"
 

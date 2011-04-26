@@ -31,6 +31,18 @@
 <div>
   <%= link_to 'new poll', new_poll_path %>
 </div>
+<div>
+  <%= link_to 'polls', polls_path %>
+</div>
+
+<div>
+  <b>online now</b>
+  <ul>
+    <% @logged_in_usernames.each do |u| %>
+      <li> <%= u %> </li>
+    <% end %>
+  </ul>
+</div>
 
 
 <hr />
