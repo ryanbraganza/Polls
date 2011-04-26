@@ -1,0 +1,14 @@
+<ol>
+<% @polls.each do |poll| %>
+<li>
+  <div>
+    <%= poll.title %>
+  </div>
+  <div>
+    <%= poll.description %>
+  </div>
+  <div>
+    <%= poll.creator.username %>
+  </div>
+<% end %>
+</ol>
