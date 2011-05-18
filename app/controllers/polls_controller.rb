@@ -3,8 +3,12 @@ class PollsController < ApplicationController
 
   def new
     @poll = Poll.new
+    2.times do
+      @poll.questions.build
+    end
   end
   def create
+    raise params.inspect
     poll = Poll.new params[:poll]
     poll.creator_id = current_user.id
     if poll.save

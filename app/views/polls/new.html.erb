@@ -2,9 +2,54 @@
   <div> new poll </div>
 </div>
 
+<style>
+li {background-color: #0f0;}
+</style>
 
 <%= form_for @poll do |f| %>
+title
   <%= f.text_field :title %>
+description
   <%= f.text_area :description %>
+
+<div id="questions">
+</div>
+<div style="clear:both;"></div>
   <%= f.submit %>
 <% end %>
+
+<div id="question_template" style="display:none">
+  <div style="background-color:#f00;">
+  <input type="text" value="Question?" />
+  <ol>
+    <li><input type="text" value="Answer" /></li>
+    <li><input type="text" value="Answer" /></li>
+    <li><input type="text" value="Answer" /></li>
+    <li><input type="text" value="Answer" /></li>
+    <li><input type="text" value="Answer" /></li>
+  </ol>
+</div>
+</div>
+
+<script type="text/javascript">
+jQuery(document).ready(function(){
+var template = jQuery('#question_template').html();
+
+var jQuestions = jQuery('#questions');
+var addQuestion = function(){
+  jQuestions.append(template);
+};
+
+addQuestion();
+addQuestion();
+
+var submit_form = function(evt){
+};
+jQuery("form").submit(submit_form);
+
+});
+jQuery('#questions').sortable({axis: 'y', tolerance: 'pointer'});
+//jQuery('#questions div ol').sortable();
+//jQuery('ol').sortable();
+
+</script>

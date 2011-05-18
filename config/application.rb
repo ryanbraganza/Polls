@@ -31,7 +31,7 @@ module Polls
     # config.i18n.default_locale = :de
 
     # JavaScript files you want as :defaults (application.js is always included).
-    # config.action_view.javascript_expansions[:defaults] = %w(jquery rails)
+    config.action_view.javascript_expansions[:defaults] = %w(jquery-1.6 jquery-ui/js/jquery-ui-1.8.12.custom.min.js)
 
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
