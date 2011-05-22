@@ -5,6 +5,7 @@
 <style>
 li {background-color: #0f0;}
 </style>
+<button id="new_question">new question</button>
 
 <%= form_for @poll do |f| %>
 title
@@ -12,14 +13,14 @@ title
 description
   <%= f.text_area :description %>
 
-<div id="questions">
-</div>
+<ol id="questions">
+</ol>
 <div style="clear:both;"></div>
   <%= f.submit %>
 <% end %>
 
 <div id="question_template" style="display:none">
-  <div style="background-color:#f00;">
+  <li style="background-color:#f00;">
   <input type="text" value="Question?" />
   <ol>
     <li><input type="text" value="Answer" /></li>
@@ -28,7 +29,7 @@ description
     <li><input type="text" value="Answer" /></li>
     <li><input type="text" value="Answer" /></li>
   </ol>
-</div>
+</li>
 </div>
 
 <script type="text/javascript">
@@ -38,6 +39,7 @@ var template = jQuery('#question_template').html();
 var jQuestions = jQuery('#questions');
 var addQuestion = function(){
   jQuestions.append(template);
+  jQuestions.find('ol:last-child').sortable();
 };
 
 addQuestion();
@@ -47,9 +49,8 @@ var submit_form = function(evt){
 };
 jQuery("form").submit(submit_form);
 
-});
 jQuery('#questions').sortable({axis: 'y', tolerance: 'pointer'});
-//jQuery('#questions div ol').sortable();
-//jQuery('ol').sortable();
+jQuery('#new_question').click(function(evt){addQuestion();});
+});
 
 </script>
