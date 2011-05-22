@@ -8,8 +8,7 @@ class PollsController < ApplicationController
     end
   end
   def create
-    raise params.inspect
-    poll = Poll.new params[:poll]
+    poll = PollAux::pollify params
     poll.creator_id = current_user.id
     if poll.save
       redirect_to polls_path, :notice => 'poll created'

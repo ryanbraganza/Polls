@@ -9,9 +9,9 @@ li {background-color: #0f0;}
 
 <%= form_for @poll do |f| %>
 title
-  <%= f.text_field :title %>
+  <%= f.text_field :title, :id => 'title' %>
 description
-  <%= f.text_area :description %>
+  <%= f.text_area :description, :id => 'description' %>
 
 <ol id="questions">
 </ol>
@@ -21,13 +21,12 @@ description
 
 <div id="question_template" style="display:none">
   <li style="background-color:#f00;">
-  <input type="text" value="Question?" />
+  <input name='question' type="text" value="Question?" />
   <ol>
-    <li><input type="text" value="Answer" /></li>
-    <li><input type="text" value="Answer" /></li>
-    <li><input type="text" value="Answer" /></li>
-    <li><input type="text" value="Answer" /></li>
-    <li><input type="text" value="Answer" /></li>
+    <li><input name='answer' type="text" value="Answer" /></li>
+    <li><input name='answer' type="text" value="Answer" /></li>
+    <li><input name='answer' type="text" value="Answer" /></li>
+    <li><input name='answer' type="text" value="Answer" /></li>
   </ol>
 </li>
 </div>
@@ -45,12 +44,30 @@ var addQuestion = function(){
 addQuestion();
 addQuestion();
 
-var submit_form = function(evt){
-};
-jQuery("form").submit(submit_form);
-
 jQuery('#questions').sortable({axis: 'y', tolerance: 'pointer'});
-jQuery('#new_question').click(function(evt){addQuestion();});
+jQuery('#new_question').click(function(evt){addQuestion();return false;});
+jQuery('form').submit(function(evt){
+  evt.preventDefault();
+  var poll = {};
+  poll.title = jQuery('#title').val();
+  poll.description = jQuery('#description').val();
+  poll.questions = [];
+  jQuery('#questions>li').each(function(idx, elem){
+    var question = {};
+    question.question = jQuery(elem).find('>input').val();
+    question.answers = [];
+    jQuery(elem).find('li>input').each(function(idx, elem) {
+      question.answers.push(jQuery(elem).val());
+    });
+    poll.questions.push(question);
+  });
+  console.log('%o', poll);
+  var path = '<%= polls_path.html_safe %>';
+  jQuery.post(path, poll, function(data, textStatus, jqXHR){
+    window.location=path;
+  });
+});
+
 });
 
 </script>
