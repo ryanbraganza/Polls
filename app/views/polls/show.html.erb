@@ -1,0 +1,34 @@
+Poll
+<style>
+.answer_list {
+  list-style-type: lower-alpha;
+}
+</style>
+
+<div>
+<div>
+title: <%= @poll.title %>
+</div>
+<div>
+description: <%= @poll.description %>
+</div>
+<div>
+created by: <%= @poll.creator.username %>
+</div>
+</div>
+
+<ol>
+  <% @poll.questions.each do |question| %>
+    <li>
+      <%= question.question %>
+      <ol class="answer_list">
+        <% question.answers.each do |answer| %>
+          <li>
+            <%= answer.answer %>
+          </li>
+        <% end %>
+      </ol>
+    </li>
+  <% end %>
+</ol>
+

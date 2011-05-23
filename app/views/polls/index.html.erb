@@ -2,7 +2,8 @@
 <% @polls.each do |poll| %>
 <li>
   <div>
-    <%= poll.title %>
+    <% link_text = "#{poll.title} (#{pluralize poll.questions.count, 'questions'})" %>
+    <%= link_to link_text, poll_path(poll)  %>
   </div>
   <div>
     <%= poll.description %>
