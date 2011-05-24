@@ -17,6 +17,7 @@ created by: <%= @poll.creator.username %>
 </div>
 </div>
 
+<%= form_tag vote_poll_path @poll do %>
 <ol>
   <% @poll.questions.each do |question| %>
     <li>
@@ -24,11 +25,15 @@ created by: <%= @poll.creator.username %>
       <ol class="answer_list">
         <% question.answers.each do |answer| %>
           <li>
-            <%= answer.answer %>
+            <% id = "#{question.index}_#{answer.index}" %>
+            <%= radio_button_tag "question[#{question.index}]", answer.index, false, :id => id %>
+            <%= label_tag id, answer.answer %>
           </li>
         <% end %>
       </ol>
     </li>
   <% end %>
 </ol>
+<%= submit_tag %>
+<% end %>
 

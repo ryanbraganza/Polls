@@ -1,6 +1,10 @@
 Polls::Application.routes.draw do
   devise_for :users
-  resources :polls, :only => [:new, :create, :show, :index]
+  resources :polls, :only => [:new, :create, :show, :index] do
+    member do
+      post :vote
+    end
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -19,6 +19,10 @@ class PollsController < ApplicationController
   def show
     @poll = Poll.find params[:id]
   end
+  def vote
+    raise params.inspect
+    # TODO implement
+  end
   def index
     @polls = Poll.all
   end
