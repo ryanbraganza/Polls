@@ -20,8 +20,21 @@ class PollsController < ApplicationController
     @poll = Poll.find params[:id]
   end
   def vote
-    raise params.inspect
-    # TODO implement
+    @poll = Poll.find params[:id]
+    responses = params[:question]
+    user_id = current_user.id
+    
+    ActiveRecord::Base.transaction do
+      responses.each do |question_id, answer_id|
+        q = Question.find question_id
+        a = Answer.find answer_id
+        r = q.responses.where :user_id => user_id
+        r.each { |r| r.destroy }
+        r = Response.new :user => current_user, :answer => a
+        r.save!
+      end
+    end
+    redirect_to poll_path(@poll), :notice => 'your answers have been saved'
   end
   def index
     @polls = Poll.all

@@ -25,8 +25,8 @@ created by: <%= @poll.creator.username %>
       <ol class="answer_list">
         <% question.answers.each do |answer| %>
           <li>
-            <% id = "#{question.index}_#{answer.index}" %>
-            <%= radio_button_tag "question[#{question.index}]", answer.index, false, :id => id %>
+            <% id = "#{question.id}_#{answer.id}" %>
+            <%= radio_button_tag "question[#{question.id}]", answer.id, false, :id => id %>
             <%= label_tag id, answer.answer %>
           </li>
         <% end %>
