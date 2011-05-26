@@ -17,6 +17,8 @@ created by: <%= @poll.creator.username %>
 </div>
 </div>
 
+<%= render :partial => 'results', :locals => {:poll => @poll} %>
+
 <%= form_tag vote_poll_path @poll do %>
 <ol>
   <% @poll.questions.each do |question| %>

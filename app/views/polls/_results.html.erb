@@ -1,0 +1,9 @@
+<% poll.questions.order('"index"').each do |q| %>
+  <%= q.question %>
+  <% q.answers.order('"index"').each do |a| %>
+    <div>
+      <%= a.answer %>
+      (<%= pluralize a.responses.count, 'vote' %>)
+    </div>
+  <% end %>
+<% end %>
