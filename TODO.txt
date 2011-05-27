@@ -1,8 +1,5 @@
 In rough order of priority
 
-Questions - name, options, (poll)
-Responses - voter, option, (question)
-
 Comments - author, text
 
 "social"
