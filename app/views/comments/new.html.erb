@@ -1,0 +1,8 @@
+<% @comment.errors.full_messages.each do |e| %>
+  <%= e %>
+<% end %>
+<%= form_for [@poll, @comment], :url=> poll_comments_path(@poll) do |f| %>
+  <%= f.label :comment %>
+  <%= f.text_area :comment %>
+  <%= f.submit %>
+<% end %>

@@ -4,7 +4,10 @@ Polls::Application.routes.draw do
     member do
       post :vote
     end
+    resources :comments, :only => [:new, :create, :index]
   end
+
+  resources :comments, :only => [:index]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

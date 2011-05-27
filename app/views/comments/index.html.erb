@@ -1,0 +1,22 @@
+<% if @poll %>
+  Comments for <%= @poll.title %>
+<% end %>
+<% @comments.each do |comment| %>
+  <div>
+    <div>
+      <strong>
+        <% unless @poll %>
+          Comment for <%= comment.poll.title %>
+        <% end %>
+
+        by <%= comment.user.username %>
+        
+        at <%= comment.created_at.localtime %>
+      </strong>
+    </div>
+
+    <div class="comment">
+      <%= comment.comment %>
+    </div>
+  </div>
+<% end %>

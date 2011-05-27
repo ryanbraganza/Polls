@@ -16,6 +16,8 @@ description: <%= @poll.description %>
 created by: <%= @poll.creator.username %>
 </div>
 </div>
+<%= link_to 'comments', poll_comments_path(@poll) %>
+<%= link_to 'comment on this poll', new_poll_comment_path(@poll) %>
 
 <%= render :partial => 'results', :locals => {:poll => @poll} %>
 
