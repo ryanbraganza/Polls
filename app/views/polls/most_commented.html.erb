@@ -1,0 +1,9 @@
+most commented polls
+<ol>
+<% @polls.each do |poll| %>
+  <li>
+    <%= link_to poll.title, poll_path(poll) %>
+    <%= link_to (pluralize poll.the_c, 'comments'), poll_comments_path(poll) %>
+  </li>
+<% end %>
+</ol>

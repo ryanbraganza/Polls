@@ -4,6 +4,9 @@ Polls::Application.routes.draw do
     member do
       post :vote
     end
+    collection do
+      get :most_commented
+    end
     resources :comments, :only => [:new, :create, :index]
   end
 

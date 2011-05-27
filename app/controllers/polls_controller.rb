@@ -1,6 +1,10 @@
 class PollsController < ApplicationController
   before_filter :authenticate_user!
 
+  def most_commented
+    @polls = Poll.find_by_sql('select count(*) the_c, polls.* from polls join comments on comments.poll_id = polls.id group by poll_id order by the_c desc')
+  end
+
   def new
     @poll = Poll.new
     2.times do
