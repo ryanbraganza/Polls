@@ -12,6 +12,8 @@ Polls::Application.routes.draw do
 
   resources :comments, :only => [:index]
 
+  resources :feature_requests, :only => [:index, :new, :create]
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

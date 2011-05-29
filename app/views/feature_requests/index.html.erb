@@ -1,0 +1,14 @@
+<%= link_to 'new feature request', new_feature_request_path %>
+
+<% if @feature_requests.empty? %>
+  no feature requests
+<% end %>
+
+<ol>
+  <% @feature_requests.each do |feature_request| %>
+    <li>
+      <%= feature_request.feature %>
+      <%= feature_request.created_at %>
+    </li>
+  <% end %>
+</ol>

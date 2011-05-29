@@ -16,6 +16,7 @@
     <%= link_to 'logout', destroy_user_session_path %>
     <%= link_to 'comments', comments_path %>
     <%= link_to 'most commented', most_commented_polls_path %>
+    <%= link_to 'feature requests', feature_requests_path %>
   <% else %>
     You are not logged in
       <%= form_for("user", :url => user_session_path) do |f| %>
