@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   
   before_filter do
-    @logged_in_usernames = ActiveRecord::SessionStore::Session.all.map{|s| kv = s.data["warden.user.user.key"]; kv.nil? ? 'guest' : kv[0].constantize.find(kv[1]).username}
+    ids = ActiveRecord::SessionStore::Session.all.map{|s| kv = s.data["warden.user.user.key"]; kv.nil? ? nil : kv[1]}.compact.uniq
+    @logged_in_users = User.where(:id => ids)
   end
 end
