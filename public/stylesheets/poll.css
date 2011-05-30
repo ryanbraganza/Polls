@@ -1,3 +1,55 @@
+* {
+  margin: 0;
+}
+html, body {
+  height: 100%;
+}
+div.clearfix {
+  clear:both;
+}
+#top {
+  font-size: small;
+  background-color: #dddddd;
+  padding: 8px;
+  border-radius: 0 0 20px 20px;
+}
+#top input {
+  width: 100px;
+}
+#top_login {
+  float:right;
+}
+#content {
+  padding: 8px 8px 30px;
+}
 .comment {
   padding-left: 30px;
+}
+input[type="submit"]{
+  background-color: #55DD66;
+  border-radius: 20px 0 20px 0;
+}
+input[type="submit"]:hover {
+  background-color: #88DD55;
+}
+input[type="submit"]:active {
+  background-color: #88FF99;
+}
+#bottom, #push {
+  height: 20px;
+}
+#bottom {
+  float:right;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+#wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -40px;
+}
+ul.user_list {
+  list-style-type: none;
 }

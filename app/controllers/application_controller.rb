@@ -7,5 +7,7 @@ class ApplicationController < ActionController::Base
   before_filter do
     ids = ActiveRecord::SessionStore::Session.all.map{|s| kv = s.data["warden.user.user.key"]; kv.nil? ? nil : kv[1]}.compact.uniq
     @logged_in_users = User.where(:id => ids)
+    @num_polls = Poll.count
+    @num_users = User.count
   end
 end
