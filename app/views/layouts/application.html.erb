@@ -15,12 +15,12 @@
         Welcome, <%= current_user.username %>
       </div>
       <div id="links">
-        <%= link_to 'logout', destroy_user_session_path %>
         <%= link_to 'comments', comments_path %>
         <%= link_to 'most commented', most_commented_polls_path %>
         <%= link_to 'feature requests', feature_requests_path %>
         <%= link_to 'new poll', new_poll_path %>
         <%= link_to 'polls', polls_path %>
+        <%= link_to 'logout', destroy_user_session_path %>
       </div>
     <% else %>
       <div id="top_login">

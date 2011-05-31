@@ -24,7 +24,13 @@ div.clearfix {
 #content {
   padding: 8px 8px 30px;
 }
-.comment {
+div.comment {
+  background-color: #dddddd;
+  width: 50%;
+  border-radius: 5px 0 5px 0;
+  padding: 15px;
+}
+div.comment_content {
   padding-left: 30px;
 }
 input[type="submit"]{
@@ -103,6 +109,6 @@ div.poll_description {
   padding: 10px 20px 20px 50px;
 }
   
-span.by {
+span.by, span.time {
   font-size: 0.7em;
 }

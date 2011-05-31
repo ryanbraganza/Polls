@@ -7,20 +7,19 @@
 </h1>
 
 <% @comments.each do |comment| %>
-  <div>
+  <div class="comment">
     <div>
       <strong>
         <% unless @poll %>
           Comment for <%= comment.poll.title %>
         <% end %>
-
-        by <%= comment.user.username %>
+        <span class="by">by <%= comment.user.username %></span>
         
-        at <%= comment.created_at.localtime %>
+        <span class="time">at <%= comment.created_at.localtime.strftime "%c" %></span>
       </strong>
     </div>
 
-    <div class="comment">
+    <div class="comment_content">
       <%= comment.comment %>
     </div>
   </div>
