@@ -1,15 +1,22 @@
-<ol>
-<% @polls.each do |poll| %>
-<li>
-  <div>
-    <% link_text = "#{poll.title} (#{pluralize poll.questions.count, 'questions'})" %>
-    <%= link_to link_text, poll_path(poll)  %>
-  </div>
-  <div>
-    <%= poll.description %>
-  </div>
-  <div>
-    <%= poll.creator.username %>
-  </div>
-<% end %>
+<h1>
+  Polls
+</h1>
+
+<ol class="polls">
+  <% @polls.each do |poll| %>
+    <li>
+      <div>
+        <div class="poll_info">
+          <% link_text = "#{poll.title} (#{pluralize poll.questions.count, 'questions'})" %>
+          <%= link_to link_text, poll_path(poll)  %>
+          <span class="by">
+            by <%= poll.creator.username %>
+          </span>
+        </div>
+        <div class="poll_description">
+          <%= poll.description %>
+        </div>
+      </div>
+    </li>
+  <% end %>
 </ol>

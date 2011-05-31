@@ -1,6 +1,11 @@
-<% if @poll %>
-  Comments for <%= link_to @poll.title, poll_path(@poll) %>
-<% end %>
+<h1>
+  <% if @poll %>
+    Comments for <%= link_to @poll.title, poll_path(@poll) %>
+  <% else %>
+    Most recent comments
+  <% end %>
+</h1>
+
 <% @comments.each do |comment| %>
   <div>
     <div>

@@ -3,6 +3,7 @@
 }
 html, body {
   height: 100%;
+  background-color: #efefd6;
 }
 div.clearfix {
   clear:both;
@@ -12,6 +13,7 @@ div.clearfix {
   background-color: #dddddd;
   padding: 8px;
   border-radius: 0 0 20px 20px;
+  border-bottom: 5px dashed #dadada;
 }
 #top input {
   width: 100px;
@@ -52,4 +54,55 @@ input[type="submit"]:active {
 }
 ul.user_list {
   list-style-type: none;
+}
+#welcome {
+  float:left;
+}
+#links {
+  float:right;
+}
+
+a {
+  color: #0033dd;
+}
+a:visited {
+  color: #222222;
+}
+a:hover {
+  color: #ee0000;
+}
+a:active {
+  color: #55dd66;
+}
+
+h1 {
+  color: #006666;
+  font-family: sans-serif;
+  font-size: 1.8em;
+  padding: 20px;
+}
+ol.polls {
+  list-style-type: none;
+}
+ol.polls li {
+  float:left;
+}
+ol.polls li>div {
+  padding: 10px;
+  margin: 5px;
+  background-color: #dddddd;
+  width: 400px;
+  border-radius: 20px 0 20px 0;
+  border: 2px ridge #000000;
+}
+div.poll_info {
+  padding: 2px;
+  font-size: 1.1em;
+}
+div.poll_description {
+  padding: 10px 20px 20px 50px;
+}
+  
+span.by {
+  font-size: 0.7em;
 }
