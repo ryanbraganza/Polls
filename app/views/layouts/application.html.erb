@@ -46,12 +46,11 @@
 </div>
 <div id="bottom">
   <div>
-    <b>online now</b>
-    <ul class="user_list">
-      <% @logged_in_users.each do |u| %>
-        <li> <%= u.username %> </li>
-      <% end %>
-    </ul>
+    online now:
+    <span class="online_users">
+      <% it = @logged_in_users.length > 3 ? '...' : '' %>
+      <%= @logged_in_users.slice(0..3).map{|u|u.username}.join(', ') + it%>
+    </span>
   </div>
 </div>
 </body>
