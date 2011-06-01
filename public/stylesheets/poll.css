@@ -47,19 +47,17 @@ input[type="submit"]:active {
   height: 20px;
 }
 #bottom {
-  float:right;
   padding-left: 20px;
   padding-right: 20px;
+  background-color: rgba(0,221, 68, 0.5);
+  border-radius: 20px 0 0 0;
 }
 
 #wrapper {
   min-height: 100%;
   height: auto !important;
   height: 100%;
-  margin: 0 auto -40px;
-}
-ul.user_list {
-  list-style-type: none;
+  margin: 0 auto -20px;
 }
 #welcome {
   float:left;
@@ -113,3 +111,6 @@ span.by, span.time {
   font-size: 0.7em;
 }
 
+#online_now {
+  float:right;
+}
