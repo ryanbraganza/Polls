@@ -41,6 +41,6 @@ class PollsController < ApplicationController
     redirect_to poll_path(@poll), :notice => 'your answers have been saved'
   end
   def index
-    @polls = Poll.all
+    @polls = Poll.includes(:creator).all
   end
 end
