@@ -114,3 +114,14 @@ span.by, span.time {
 #online_now {
   float:right;
 }
+
+p.notice, p.alert {
+  border: 1px solid #ccc;
+  margin: 4px;
+}
+p.notice {
+  background-color: rgba(153, 238, 255, 0.5);
+}
+p.alert {
+  background-color: rgba(255, 97, 87, 0.5);
+}
